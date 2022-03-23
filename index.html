@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#">
+    <title>Всеволод Антонов: Веб 1</title>
+    <style>
+        * {
+            font-family: "serif";
+            font-size: 18px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: burlywood;
+        }
+
+        @keyframes anim-table {
+            0% {
+                transform: translateX(-150%);
+            }
+            15% {
+                transform: translateX(5%);
+            }
+            30% {
+                transform: translateX(-5%);
+            }
+            45% {
+                transform: translateX(3%);
+            }
+            60% {
+                transform: translateX(-3%);
+            }
+            75% {
+                transform: translateX(1%);
+            }
+            85% {
+                transform: translateX(-1%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        button {
+            color: white;
+            margin: 20px 5px 0;
+            border-radius: 6px;
+            letter-spacing: 1px;
+            display: inline-block;
+            text-decoration: none;
+            background-color: black;
+            border: 2px solid black;
+        }
+
+        .main-table {
+            padding: 20px;
+            display: table;
+            text-align: center;
+            margin: 30px auto auto;
+            background-color: lightseagreen;
+            box-shadow: 0 0 10px 1px black;
+        }
+
+        svg {
+            padding: 15px;
+            border-radius: 20%;
+            background-color: white;
+            box-shadow: 0 0 5px 0 magenta;
+        }
+
+        form {
+            margin-left: 50px;
+            border-radius: 7%;
+            background-color: #43c429;
+            padding: 25px 25px 20px 25px;
+            box-shadow: 0 0 10px 1px crimson;
+        }
+
+        #table-check {
+            margin-left: 50px;
+            color: white;
+            max-width: 80%;
+            border: 1px solid black;
+            background-color: black;
+        }
+
+        th {
+            padding: 10px;
+            font-size: 20px;
+            font-weight: lighter;
+        }
+
+        .first-letter {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+        }
+
+        input {
+            margin: 5px;
+            text-align: center;
+        }
+
+        header {
+            font-family: "serif";
+            font-size: 20px;
+            color: darkslategray;
+            height: 75px;
+            display: flex;
+            background-color: salmon;
+            justify-content: space-between;
+            box-shadow: 0 0 20px 5px black;
+        }
+
+        header > div {
+            display: flex;
+            align-items: center;
+            margin: 10px 20px auto;
+            flex-direction: column;
+        }
+
+        input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div>
+        Антонов Всеволод P3233 Вариант 34500
+    </div>
+    <div id="time">
+    </div>
+</header>
+<table class="main-table">
+    <tr>
+        <td style="vertical-align: top">
+            <svg height="300" width="300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Стрелки и оси -->
+                <line stroke="black" x1="0" x2="300" y1="150" y2="150"></line>
+                <line stroke="black" x1="150" x2="150" y1="0" y2="300"></line>
+                <polygon fill="black" points="150,0 145,20 155,20" stroke="black"></polygon>
+                <polygon fill="black" points="300,150 280,155 280,145" stroke="black"></polygon>
+
+                <!-- Деления -->
+                <line stroke="black" x1="200" x2="200" y1="155" y2="145"></line>
+                <line stroke="black" x1="250" x2="250" y1="155" y2="145"></line>
+
+                <line stroke="black" x1="50" x2="50" y1="155" y2="145"></line>
+                <line stroke="black" x1="100" x2="100" y1="155" y2="145"></line>
+
+                <line stroke="black" x1="145" x2="155" y1="100" y2="100"></line>
+                <line stroke="black" x1="145" x2="155" y1="50" y2="50"></line>
+
+                <line stroke="black" x1="145" x2="155" y1="200" y2="200"></line>
+                <line stroke="black" x1="145" x2="155" y1="250" y2="250"></line>
+
+                <!-- Подписи к делениям и осям -->
+                <text fill="black" x="195" y="140">R/2</text>
+                <text fill="black" x="250" y="140">R</text>
+
+                <text fill="black" x="40" y="140">-R</text>
+                <text fill="black" x="85" y="140">-R/2</text>
+
+                <text fill="black" x="160" y="55">R</text>
+                <text fill="black" x="160" y="105">R/2</text>
+
+                <text fill="black" x="160" y="204">-R/2</text>
+                <text fill="black" x="160" y="255">-R</text>
+
+                <text fill="black" x="285" y="140">x</text>
+                <text fill="black" x="160" y="15">y</text>
+
+                <!-- Прямоугольник -->
+                <polygon fill="fuchsia"
+                         fill-opacity="0.48"
+                         stroke="fuchsia"
+                         points="50,150 150,150 150,250 50,250"></polygon>
+
+                <!-- Треугольник -->
+                <polygon fill="fuchsia"
+                         fill-opacity="0.48"
+                         stroke="fuchsia"
+                         points="150,150 250,150 150,250"></polygon>
+
+                <!-- Четверть круга -->
+                <path fill="fuchsia"
+                      fill-opacity="0.48"
+                      stroke="fuchsia"
+                      d="M250,150 Q250,50 150,50 L 150 150 Z"></path>
+
+                <!-- Точка на графике -->
+                <circle r="4" cx="150" cy="150" fill="red" stroke="white" visibility="hidden"/>
+
+            </svg>
+        </td>
+
+        <td style="vertical-align: top;">
+            <form>
+                <table>
+                    <tr>
+                        <td class="first-letter">
+                            X:
+                        </td>
+                        <td style="text-align: center">
+                            <div>
+                                <label>
+                                    <select>
+                                        <option name="x" value="-3">-3</option>
+                                        <option name="x" value="-2">-2</option>
+                                        <option name="x" value="-1">-1</option>
+                                        <option name="x" value="0">0</option>
+                                        <option name="x" value="1">1</option>
+                                        <option name="x" value="2">2</option>
+                                        <option name="x" value="3">3</option>
+                                        <option name="x" value="4">4</option>
+                                        <option name="x" value="5">5</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first-letter">
+                            Y:
+                        </td>
+                        <td>
+                            <div style="text-align: left">
+                                <label>
+                                    <input id="Y-text" type="text" name="y" placeholder="(-5; 5)"
+                                           required oninput="this.setCustomValidity('')"
+                                    />
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first-letter">
+                            R:
+                        </td>
+                        <td>
+                            <div>
+                                <label>
+                                    <input type="radio" name="r" value="1">
+                                    <span>1</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="r" value="1.5">
+                                    <span>1.5</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="r" value="2">
+                                    <span>2</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="r" value="2.5" checked>
+                                    <span>2.5</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="r" value="3">
+                                    <span>3</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <button id="submit-button" type="submit">Отправить</button>
+                <button id="clear-button" type="reset">Очистить таблицу</button>
+            </form>
+        </td>
+        <td style="vertical-align: top;">
+            <table id="table-check">
+                <tr>
+                    <th scope="col">R</th>
+                    <th scope="col">X</th>
+                    <th scope="col">Y</th>
+                    <th scope="col">Результат</th>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
