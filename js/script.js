@@ -97,7 +97,8 @@ function addToTable(response) {
     //     video.hide();
         $("#time").text("Время на сервере: " + response['currentTime'] + "  Скрипт отработал за: " + response['time'] + "ms");
         $("#table-check").find('tbody')
-            .append($('<tr style="animation: anim-table 0.5s ease-in-out forwards;">')
+           // .append($('<tr style="animation: anim-table 0.5s ease-in-out forwards;">')
+		.append($('<tr>')
                 .append($('<td>')
                     .text(response['r']))
                 .append($('<td>')
