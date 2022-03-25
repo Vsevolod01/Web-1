@@ -5,7 +5,6 @@ ini_set('display_errors', 'Off');
 
 $startTime = microtime(true);
 
-
 function greater_or_eq($a, $b)
 {
     $b *= 10;
@@ -27,6 +26,29 @@ function greater_or_eq($a, $b)
         }
     }
     return $a >= $b;
+}
+
+function less_or_eq($a, $b)
+{
+    $b *= 10;
+    if (strripos($a, ".") !== FALSE) {
+        $a = rtrim($a, "0"); 
+        $a = rtrim($a, ".");
+        $dot_pos = strripos($a, ".");
+        $tmp = $a[$dot_pos];
+        $a[$dot_pos] = $a[$dot_pos + 1];
+        $a[$dot_pos + 1] = $tmp;
+        $a = rtrim($a, ".");
+        $dot_pos++;
+        if (substr($a, 0, max(0, $dot_pos)) == $b) {
+            if (substr($a, max(0, $dot_pos)) == ""){
+                return !($a[0] == "-");
+            } else {
+                return ($a[0] == "-");
+            }
+        }
+    }
+    return $a <= $b;
 }
 
 function lite_json_print(array $result)
@@ -63,10 +85,17 @@ function checkArgs($x, $y, $r)
         is_numeric($x) && is_numeric($y) && is_numeric($r);
 }
 
+function circle($x, $y, $r) {
+    if ($x == 0 && $y == $r) {
+        return less_or_eq($y, $r);
+    }
+    return TRUE;
+}
+
 function atArea($x, $y, $r)
 {
     return
-        ((0 <= $x) && ($y >= 0) && ($y ** 2 <= $r ** 2 - $x ** 2)) || // Четверть круга
+        (circle($x, $y, $r) && (0 <= $x) && ($y >= 0) && ($y ** 2 <= $r ** 2 - $x ** 2)) || // Четверть круга
         ((0 <= $x) && ($y <= 0) && greater_or_eq($y, $x - $r)) || // Треугольник
         (($x <= 0) && ($x >= -$r) && ($y <= 0) && greater_or_eq($y, -$r)); // Прямоугольник
 }
